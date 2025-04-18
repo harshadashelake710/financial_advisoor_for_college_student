@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Savings Planner</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to the Expense Interface</h1>
+    <!-- Form to collect income, expenses, and saving goals -->
+    <form id="savings-planner-form">
+      <div>
+        <label for="income">Enter your monthly income:</label>
+        <input type="number" id="income" name="income" placeholder="Enter income" required>
+      </div>
+
+      <div>
+        <label for="saving-goal">Enter your saving goal:</label>
+        <input type="text" id="saving-goal" name="saving-goal" placeholder="E.g., Go on a trip" required>
+      </div>
+
+      <div>
+        <label for="saving-amount">How much do you want to save?</label>
+        <input type="number" id="saving-amount" name="saving-amount" placeholder="Enter saving amount" required>
+      </div>
+
+      <div id="expenses">
+        <label>Add your expenses:</label>
+        <div class="expense">
+          <input type="text" name="expense-name" placeholder="Expense name (e.g., Rent)" required>
+          <input type="number" name="expense-amount" placeholder="Expense amount" required>
+        </div>
+        <div class="expense">
+          <input type="text" name="expense-name" placeholder="Expense name (e.g., Groceries)" required>
+          <input type="number" name="expense-amount" placeholder="Expense amount" required>
+        </div>
+        <div class="expense">
+          <input type="text" name="expense-name" placeholder="Expense name (e.g., Utilities)" required>
+          <input type="number" name="expense-amount" placeholder="Expense amount" required>
+        </div>
+      </div>
+
+      <button type="submit">Calculate Savings</button>
+    </form>
+
+    <div id="result" style="margin-top: 20px;">
+      <!-- The result of the savings calculation will be displayed here -->
+    </div>
+  </div>
+  <script src="js/savings.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance Advisor</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Signup Section -->
+    <div id="signup-section">
+      <h1>Signup</h1>
+      <form id="signup-form">
+        <label for="signup-username">Username:</label>
+        <input type="text" id="signup-username" name="signup-username" placeholder="Enter your username" required>
+        <label for="signup-password">Password:</label>
+        <input type="password" id="signup-password" name="signup-password" placeholder="Enter your password" required>
+        <button type="submit">Signup</button>
+      </form>
+    </div>
+
+    <!-- Login Section -->
+    <div id="login-section" style="display: none;">
+      <h1>Login</h1>
+      <form id="login-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+
+    <!-- Welcome Section -->
+    <div id="welcome-section" style="display: none;">
+      <h1>Welcome, <span id="welcome-username"></span>!</h1>
+      <p>Fill in your savings plan below:</p>
+
+      <!-- Savings Form -->
+      <form id="savings-planner-form">
+        <div>
+          <label for="income">Enter your monthly income:</label>
+          <input type="number" id="income" name="income" placeholder="Enter income" required>
+        </div>
+
+        <div>
+          <label for="saving-goal">Enter your saving goal:</label>
+          <input type="text" id="saving-goal" name="saving-goal" placeholder="E.g., Go on a trip" required>
+        </div>
+
+        <div>
+          <label for="saving-amount">How much do you want to save?</label>
+          <input type="number" id="saving-amount" name="saving-amount" placeholder="Enter saving amount" required>
+        </div>
+
+        <div id="expenses">
+          <label>Add your expenses:</label>
+          <div class="expense">
+            <input type="text" name="expense-name" placeholder="Expense name (e.g., Rent)" required>
+            <input type="number" name="expense-amount" placeholder="Expense amount" required>
+          </div>
+          <div class="expense">
+            <input type="text" name="expense-name" placeholder="Expense name (e.g., Groceries)" required>
+            <input type="number" name="expense-amount" placeholder="Expense amount" required>
+          </div>
+          <div class="expense">
+            <input type="text" name="expense-name" placeholder="Expense name (e.g., Utilities)" required>
+            <input type="number" name="expense-amount" placeholder="Expense amount" required>
+          </div>
+        </div>
+
+        <button type="submit">Calculate Savings</button>
+      </form>
+
+      <div id="result" style="margin-top: 20px;">
+        <!-- The result of the savings calculation will be displayed here -->
+      </div>
+    </div>
+  </div>
+
+  <script src="js/scripts.js"></script>
+</body>
+</html>
