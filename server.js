@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.static('public'));
 
-// Middleware to serve static files
+// Middleware to serve static files00
 app.use(express.json());
 app.use(express.static('public'));
 

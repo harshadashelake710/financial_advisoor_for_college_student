@@ -3,82 +3,217 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Finance Advisor</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Signup and Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 400px;
+      width: 100%;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .tab {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+    .tab button {
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      padding: 10px;
+      border-bottom: 2px solid transparent;
+    }
+    .tab button.active {
+      border-bottom: 2px solid #007BFF;
+    }
+    .form {
+      display: none;
+    }
+    .form.active {
+      display: block;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+    .form-group button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .form-group button:hover {
+      background-color: #0056b3;
+    }
+    .forgot-password {
+      text-align: right;
+      margin-top: 10px;
+    }
+    .forgot-password a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <!-- Signup Section -->
-    <div id="signup-section">
-      <h1>Signup</h1>
-      <form id="signup-form">
-        <label for="signup-username">Username:</label>
-        <input type="text" id="signup-username" name="signup-username" placeholder="Enter your username" required>
-        <label for="signup-password">Password:</label>
-        <input type="password" id="signup-password" name="signup-password" placeholder="Enter your password" required>
-        <button type="submit">Signup</button>
-      </form>
+    <div class="tab">
+      <button id="tab-login" class="active">Login</button>
+      <button id="tab-register">Register</button>
     </div>
-
-    <!-- Login Section -->
-    <div id="login-section" style="display: none;">
-      <h1>Login</h1>
-      <form id="login-form">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" placeholder="Enter your username" required>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password" required>
-        <button type="submit">Login</button>
-      </form>
+    <div id="login-form" class="form active">
+      <h2>Login</h2>
+      <div class="form-group">
+        <label for="login-username">Username</label>
+        <input type="text" id="login-username" placeholder="Enter your username">
+      </div>
+      <div class="form-group">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" placeholder="Enter your password">
+      </div>
+      <div class="forgot-password">
+        <a id="forgot-password-link" href="#">Forgot Password?</a>
+      </div>
+      <div class="form-group">
+        <button id="login-button">Login</button>
+      </div>
     </div>
-
-    <!-- Welcome Section -->
-    <div id="welcome-section" style="display: none;">
-      <h1>Welcome, <span id="welcome-username"></span>!</h1>
-      <p>Fill in your savings plan below:</p>
-
-      <!-- Savings Form -->
-      <form id="savings-planner-form">
-        <div>
-          <label for="income">Enter your monthly income:</label>
-          <input type="number" id="income" name="income" placeholder="Enter income" required>
+    <div id="register-form" class="form">
+      <h2>Register</h2>
+      <div class="form-group">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" placeholder="Enter your full name">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email">
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" placeholder="Enter your phone number">
+      </div>
+      <div class="form-group">
+        <label for="profession">Profession</label>
+        <input type="text" id="profession" placeholder="Enter your profession">
+      </div>
+      <div class="form-group">
+        <label for="register-username">Username</label>
+        <input type="text" id="register-username" placeholder="Choose a username">
+      </div>
+      <div class="form-group">
+        <label for="register-password">Password</label>
+        <input type="password" id="register-password" placeholder="Choose a password">
+      </div>
+      <div class="form-group">
+        <button id="register-button">Register</button>
+      </div>
+    </div>
+    <div id="forgot-password-form" class="form">
+      <h2>Forgot Password</h2>
+      <div class="form-group">
+        <label for="reset-email">Email</label>
+        <input type="email" id="reset-email" placeholder="Enter your registered email">
+      </div>
+      <div class="form-group">
+        <button id="send-code-button">Send Code</button>
+      </div>
+      <div id="code-section" style="display: none;">
+        <div class="form-group">
+          <label for="reset-code">Enter Code</label>
+          <input type="text" id="reset-code" placeholder="Enter the code sent to your email">
         </div>
-
-        <div>
-          <label for="saving-goal">Enter your saving goal:</label>
-          <input type="text" id="saving-goal" name="saving-goal" placeholder="E.g., Go on a trip" required>
+        <div class="form-group">
+          <label for="new-password">New Password</label>
+          <input type="password" id="new-password" placeholder="Create a new password">
         </div>
-
-        <div>
-          <label for="saving-amount">How much do you want to save?</label>
-          <input type="number" id="saving-amount" name="saving-amount" placeholder="Enter saving amount" required>
+        <div class="form-group">
+          <button id="reset-password-button">Reset Password</button>
         </div>
-
-        <div id="expenses">
-          <label>Add your expenses:</label>
-          <div class="expense">
-            <input type="text" name="expense-name" placeholder="Expense name (e.g., Rent)" required>
-            <input type="number" name="expense-amount" placeholder="Expense amount" required>
-          </div>
-          <div class="expense">
-            <input type="text" name="expense-name" placeholder="Expense name (e.g., Groceries)" required>
-            <input type="number" name="expense-amount" placeholder="Expense amount" required>
-          </div>
-          <div class="expense">
-            <input type="text" name="expense-name" placeholder="Expense name (e.g., Utilities)" required>
-            <input type="number" name="expense-amount" placeholder="Expense amount" required>
-          </div>
-        </div>
-
-        <button type="submit">Calculate Savings</button>
-      </form>
-
-      <div id="result" style="margin-top: 20px;">
-        <!-- The result of the savings calculation will be displayed here -->
       </div>
     </div>
   </div>
+  <script>
+    const tabLogin = document.getElementById("tab-login");
+    const tabRegister = document.getElementById("tab-register");
+    const loginForm = document.getElementById("login-form");
+    const registerForm = document.getElementById("register-form");
+    const forgotPasswordForm = document.getElementById("forgot-password-form");
+    const forgotPasswordLink = document.getElementById("forgot-password-link");
+    const codeSection = document.getElementById("code-section");
 
-  <script src="js/scripts.js"></script>
+    tabLogin.addEventListener("click", () => {
+      tabLogin.classList.add("active");
+      tabRegister.classList.remove("active");
+      loginForm.classList.add("active");
+      registerForm.classList.remove("active");
+      forgotPasswordForm.classList.remove("active");
+    });
+
+    tabRegister.addEventListener("click", () => {
+      tabRegister.classList.add("active");
+      tabLogin.classList.remove("active");
+      registerForm.classList.add("active");
+      loginForm.classList.remove("active");
+      forgotPasswordForm.classList.remove("active");
+    });
+
+    forgotPasswordLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      tabLogin.classList.remove("active");
+      tabRegister.classList.remove("active");
+      loginForm.classList.remove("active");
+      registerForm.classList.remove("active");
+      forgotPasswordForm.classList.add("active");
+    });
+
+    document.getElementById("send-code-button").addEventListener("click", () => {
+      alert("A reset code has been sent to your email.");
+      codeSection.style.display = "block";
+    });
+
+    document.getElementById("reset-password-button").addEventListener("click", () => {
+      alert("Password reset successful! Please login with your new password.");
+      tabLogin.classList.add("active");
+      forgotPasswordForm.classList.remove("active");
+      loginForm.classList.add("active");
+    });
+
+    document.getElementById("register-button").addEventListener("click", () => {
+      alert("Registration successful! Please login.");
+      tabLogin.classList.add("active");
+      tabRegister.classList.remove("active");
+      loginForm.classList.add("active");
+      registerForm.classList.remove("active");
+    });
+
+    document.getElementById("login-button").addEventListener("click", () => {
+      alert("Login successful! Redirecting to saving page...");
+      window.location.href = "savings.html";
+    });
+  </script>
 </body>
 </html>
